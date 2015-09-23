@@ -1,0 +1,30 @@
+<div class="panel welcome-panel">
+    <div class="row">
+        <div class="small-12 columns">
+            <h1>Welcome to LofoCats!</h1>
+            <p>LofoCats is here to help lost & found cats to find their owners.</p>
+            <p>Did you lose your cat? Did you find one? Submit your entry to help the cat find its owner.</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-12 medium-4 columns">
+        <%= link_to cat_entries_path, :class => 'button expand' do %>
+            View lost & found cats
+        <% end %>
+    </div>
+
+    <div class="small-12 medium-4 columns">
+        <%= link_to new_cat_entry_path(:type => :lost), :class => 'button expand' do %>
+            I lost my cat
+        <% end %>
+    </div>
+
+    <div class="small-12 medium-4 columns">
+        <%= link_to new_cat_entry_path(:type => :found), :class => 'button expand' do %>
+            I found a cat
+        <% end %>
+    </div>
+</div>
+

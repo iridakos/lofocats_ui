@@ -1,0 +1,46 @@
+<h1>Users</h1>
+<h4 class="subheader"><small>Here you can edit/delete existing users or create new ones.</small></h4>
+
+<% @users.each do |user| %>
+    <div class="row">
+        <div class="small-12 medium-6 columns">
+            <div class="left">
+                <%= gravatar_image_tag user.email, :gravatar => { :size => 50 } %>
+            </div>
+
+            <div class="user-list-details">
+                <strong><%= user.email %></strong>
+                <% if user.admin %>
+                    <br />
+                    <span class="label warning">Administrator</span>
+                <% end %>
+            </div>
+        </div>
+
+        <div class="small-12 medium-6 columns">
+            <div class="actions">
+                <%= link_to edit_user_path(user.id), :class => 'button' do %>
+                    <i class="fa fa-edit"></i>
+                    <span>Edit</span>
+                <% end %>
+
+                <% unless user.id == current_user.id %>
+                    <%= link_to user_path(user.id), :method => :delete, :class => 'button', :data => { :confirm => "Are you sure you want to delete user #{user.email}?" } do %>
+                        <i class="fa fa-remove"></i>
+                        <span>Delete</span>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+
+    <% if user != @users.last %>
+        <hr />
+    <% end %>
+<% end %>
+
+<div class="row">
+    <div class="small-12 columns actions">
+        <%= link_to 'Create user', new_user_path, :class => 'button success' %>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+development:
+  url: 'http://localhost:3001'
+  version: '1'
+
+test:
+  url: 'http://localhost:3001'
+  version: '1'
+
+production:
+  url: 'http://localhost:3001'
+  version: '1'

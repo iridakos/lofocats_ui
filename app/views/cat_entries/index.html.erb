@@ -1,0 +1,74 @@
+<h1>Cat Entries</h1>
+<h4 class="subheader"><small>Browse for cat entries. Press the 'details' link for more information for each entry.</small></h4>
+
+<% if @cat_entries.blank? %>
+    <div class="alert-box">
+        Currenty all cats are with their owners!
+    </div>
+<% else %>
+    <ul class="cat-list small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+        <% @cat_entries.each do |cat_entry| %>
+            <li>
+                <div class="cat-details-container">
+                    <table cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td class="cat-list-photo" style="background-image: url(<%= cat_entry.photo_url %>)"></td>
+
+                            <td>
+                                <div class="cat-list-details">
+                                    <div class="row">
+                                        <div class="small-4 columns">
+                                            <span class="label radius <%= cat_entry.entry_type == 'lost' ? 'alert' : 'warning' %>"><%= cat_entry.entry_type.capitalize %></span>
+                                        </div>
+                                        <div class="small-8 columns">
+                                            <%= cat_entry.event_date %>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="small-4 columns">
+                                            <strong>Breed:</strong>
+                                        </div>
+                                        <div class="small-8 columns">
+                                            <%= cat_entry.breed %>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="small-4 columns">
+                                            <strong>Color:</strong>
+                                        </div>
+                                        <div class="small-8 columns">
+                                            <%= cat_entry.color %>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-right">
+                                        <% if can? :update, cat_entry %>
+                                            <%= link_to edit_cat_entry_path(cat_entry.id) do %>
+                                                <i class="fa fa-edit"></i>
+                                                <span>edit</span>
+                                            <% end %>
+                                        <% end %>
+
+                                        <% if can? :destroy, cat_entry %>
+                                            <%= link_to cat_entry_path(cat_entry.id), :method => :delete, :data => {:confirm => 'Are you sure you want to delete this entry?'} do %>
+                                                <i class="fa fa-remove"></i>
+                                                <span>delete</span>
+                                            <% end %>
+                                        <% end %>
+
+                                        <%= link_to cat_entry_path(:id => cat_entry.id) do %>
+                                            <i class="fa fa-eye"></i>
+                                            <span>details</span>
+                                        <% end %>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </li>
+        <% end %>
+    </ul>
+<% end %>

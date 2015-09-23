@@ -1,0 +1,55 @@
+@import 'foundation/components/global';
+
+ul.cat-list {
+  li {
+    .cat-details-container {
+      border: 1px solid $iron;
+      padding: 12px 5px 12px 12px;
+      @include radius(10px);
+
+      & > table {
+        width: 100%;
+        border: 0 none;
+        margin-bottom: 0;
+        border-collapse: collapse;
+
+        td {
+          padding: 0;
+        }
+
+        .cat-list-details {
+          padding: 10px 5px 5px 5px;
+          border-left: 1px solid $iron;
+        }
+
+        .cat-list-photo {
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 100px;
+          border: 1px solid $steel;
+        }
+      }
+    }
+  }
+}
+
+.cat-list-details {
+  .label {
+    font-size: inherit;
+  }
+
+  .alert-box {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  a {
+    margin-right: 8px;
+  }
+}
+
+.area-container {
+  margin-top: 20px;
+}

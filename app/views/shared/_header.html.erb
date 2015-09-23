@@ -1,0 +1,64 @@
+<nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+        <li class="name">
+            <h1><%= link_to 'LofoCats', root_path %></h1>
+        </li>
+        <li class="toggle-topbar menu-icon">
+            <a href="#">
+                <span>Menu</span>
+            </a>
+        </li>
+    </ul>
+
+    <section class="top-bar-section">
+        <ul class="right">
+            <% if is_user_signed_in? %>
+                <li>
+                    <%= link_to edit_user_path(current_user.id) do %>
+                        <%= session[:user_information][:email] %>
+                        <%= gravatar_image_tag(session[:user_information][:email], :alt => session[:user_information][:email], :gravatar => {:size => 35}) %>
+                    <% end %>
+                </li>
+
+                <li>
+                    <%= link_to sessions_path, :method => :delete do %>
+                        <i class="fa fa-sign-out"></i>
+                        Sign out
+                    <% end %>
+                </li>
+            <% else %>
+                <li>
+                    <%= link_to new_sessions_path do %>
+                        <i class="fa fa-sign-in"></i>
+                        Sign in
+                    <% end %>
+                </li>
+            <% end %>
+        </ul>
+
+        <ul class="left">
+            <% if is_user_signed_in? && current_user.admin %>
+                <li class="has-dropdown">
+                    <a href="#">Administration</a>
+                    <ul class="dropdown">
+                        <% if can? :manage, User %>
+                            <li><%= link_to 'Manage Users', users_path %></li>
+                        <% end %>
+                    </ul>
+                </li>
+            <% end %>
+
+            <li>
+                <%= link_to 'Browse cat entries', cat_entries_path %>
+            </li>
+
+            <li>
+                <%= link_to 'I lost my cat', new_cat_entry_path(:type => :lost) %>
+            </li>
+
+            <li>
+                <%= link_to 'I found a cat', new_cat_entry_path(:type => :found) %>
+            </li>
+        </ul>
+    </section>
+</nav>

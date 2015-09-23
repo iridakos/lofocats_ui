@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="small-12 medium-6 medium-offset-3 columns">
+        <h1>Sign in</h1>
+        <h4 class="subheader"><small>Use this form to sign in to LofoCats.</small></h4>
+
+        <div class="row">
+            <div class="small-12 columns">
+                <%= simple_form_for @session, :html => { :class => 'sign-in-form' } do |form| %>
+                    <%= hidden_field_tag :return_to, params[:return_to] %>
+
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <%= form.input :email, :placeholder => 'Enter your email' %>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <%= form.input :password, :type => :password, :placeholder => 'Enter your password' %>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <%= form.submit 'Sign in!', :class => 'button expand' %>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+
+    </div>
+</div>
+

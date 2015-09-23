@@ -1,0 +1,90 @@
+<%= simple_form_for cat_entry do |form| %>
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                Lost or Found?
+                <%= form.input :entry_type, :collection => entry_types, :label => false %>
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                <%= form.input :breed, :error_html => { :class => 'error' }, :placeholder => 'Enter the cat\'s breed' %>
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                <%= form.input :color, :error_html => { :class => 'error' }, :placeholder => 'Enter the cat\'s color' %>
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                <%= form.input :event_date, :input_html => { :class => 'datepicker' }, :error_html => { :class => 'error' }, :placeholder => 'When did you find/lost the cat?' %>
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                <%= form.input :contact_email, :error_html => { :class => 'error' }, :placeholder => 'Enter the a contact email' %>
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                <%= form.input :contact_phone, :error_html => { :class => 'error' }, :placeholder => 'Enter a contact phone' %>
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                <%= form.input :chip, :error_html => { :class => 'error' }, :placeholder => 'Does the cat have a chip? Here goes the number.' %>
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                <%= form.input :photo_url, :error_html => { :class => 'error' }, :placeholder => 'Enter a URL of a cat\'s image' %>
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                <%= form.input :longitude, :error_html => { :class => 'error' }, :placeholder => 'Enter an approximate longitude of the area you found/lost the cat' %>
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                <%= form.input :latitude, :error_html => { :class => 'error' }, :placeholder => 'Enter an approximate latitude of the area you found/lost the cat' %>
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <%= form.submit 'Save', :class => 'button expand' %>
+        </div>
+    </div>
+<% end %>
+
+

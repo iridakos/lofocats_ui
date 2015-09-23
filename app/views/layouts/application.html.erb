@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <title>LofoCats UI</title>
+
+        <%= stylesheet_link_tag 'application' %>
+        <%= javascript_include_tag 'vendor/modernizr' %>
+        <%= javascript_include_tag 'application'%>
+
+        <%= content_for :javascripts %>
+
+        <%= csrf_meta_tags %>
+    </head>
+
+    <body>
+        <%= render :partial => 'shared/header' %>
+
+        <%= render :partial => 'shared/flash_messages' %>
+
+        <div class="content-row">
+            <div class="row">
+                <div class="small-12 columns">
+                    <%= yield %>
+                </div>
+            </div>
+        </div>
+
+        <%= render :partial => 'shared/footer' %>
+    </body>
+</html>

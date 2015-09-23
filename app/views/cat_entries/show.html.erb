@@ -1,0 +1,98 @@
+<div class="row cat-list-details">
+    <div class="small-12 medium-6 medium-offset-3 columns">
+            <h1>Cat entry</h1>
+            <h4 class="subheader"><small>View details of the entry.</small></h4>
+
+            <div class="row">
+                <div class="small-12 columns">
+                    <div class="alert-box <%= @cat_entry.entry_type == 'lost' ? 'alert' : 'warning' %>">
+                        <%= @cat_entry.entry_type.capitalize %>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-6 columns">
+                    <strong>When</strong>
+                </div>
+                <div class="small-6 columns">
+                    <%= @cat_entry.event_date %>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-6 columns">
+                    <strong>Color:</strong>
+                </div>
+                <div class="small-6 columns">
+                    <%= @cat_entry.color %>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-6 columns">
+                    <strong>Breed:</strong>
+                </div>
+                <div class="small-6 columns">
+                    <%= @cat_entry.breed %>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-6 columns">
+                    <strong>Chip:</strong>
+                </div>
+                <div class="small-6 columns">
+                    <%= @cat_entry.chip %>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-6 columns">
+                    <strong>Contact email:</strong>
+                </div>
+                <div class="small-6 columns">
+                    <%= @cat_entry.contact_email %>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-6 columns">
+                    <strong>Contact phone:</strong>
+                </div>
+                <div class="small-6 columns">
+                    <%= @cat_entry.contact_phone %>
+                </div>
+            </div>
+
+            <div class="actions text-center">
+                <img src="<%= @cat_entry.photo_url %>"/>
+
+                <div class="area-container">
+                    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=470x300&sensor=true&zoom=10&markers=#{@cat_entry.latitude}%2C#{@cat_entry.longitude}" %>
+                </div>
+            </div>
+
+
+        <div class="row actions">
+            <% if can? :update, @cat_entry %>
+                <div class="small-12 medium-6 columns">
+                    <%= link_to edit_cat_entry_path(@cat_entry.id), :class => 'button expand' do %>
+                        <i class="fa fa-edit"></i>
+                        <span>edit</span>
+                    <% end %>
+                </div>
+            <% end %>
+
+            <% if can? :destroy, @cat_entry %>
+                <div class="small-12 medium-6 columns">
+                    <%= link_to cat_entry_path(@cat_entry.id), :method => :delete, :class => 'button expand' do %>
+                        <i class="fa fa-remove"></i>
+                        <span>delete</span>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+

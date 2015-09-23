@@ -1,0 +1,42 @@
+<%= simple_form_for user do |form| %>
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                <%= form.input :email, :disabled => !current_user.admin %>
+            </label>
+        </div>
+    </div>
+
+    <% unless current_user.id == user.id %>
+        <div class="row">
+            <div class="small-12 columns">
+                <%= form.check_box :admin %>
+                <%= form.label :admin, 'Administrator' %>
+            </div>
+        </div>
+    <% end %>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                <%= form.input :password, :type => :password %>
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                <%= form.input :password_confirmation, :type => :password %>
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            <label>
+                <%= form.submit 'Save', :class => 'button' %>
+            </label>
+        </div>
+    </div>
+<% end %>
