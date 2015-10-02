@@ -51,11 +51,11 @@ class SessionsController < ApplicationController
   # Keep user information in a hash
   def extract_user_information(session_response)
     {
-        :id => session_response[:user][:id],
-        :admin => session_response[:user][:admin],
-        :email => session_response[:user][:email],
-        :authentication_token => session_response[:authentication_token][:token],
-        :authentication_token_expires_at => session_response[:authentication_token][:expires_at]
+        id: session_response[:user][:id],
+        admin: session_response[:user][:admin],
+        email: session_response[:user][:email],
+        authentication_token: session_response[:authentication_token][:token],
+        authentication_token_expires_at: session_response[:authentication_token][:expires_at]
     }
   end
 end

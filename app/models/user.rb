@@ -15,13 +15,13 @@ class User
 
   attr_accessor :password_confirmation
 
-  validates :email, :presence => true
+  validates :email, presence: true
 
   def attributes
-    { :email => nil,
-      :password => nil,
-      :password_confirmation => nil,
-      :admin => nil }
+    { email: nil,
+      password: nil,
+      password_confirmation: nil,
+      admin: nil }
   end
 
   class << self
@@ -36,9 +36,9 @@ class User
 
   def save
     if id.present?
-      self.class.execute(:put, "/api/users/#{id}", :user => self.serializable_hash)
+      self.class.execute(:put, "/api/users/#{id}", user: self.serializable_hash)
     else
-      response = self.class.execute(:post, '/api/users', :user => self.serializable_hash)
+      response = self.class.execute(:post, '/api/users', user: self.serializable_hash)
       self.id = response[:id]
     end
     true

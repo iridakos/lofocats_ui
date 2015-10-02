@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :cat_entries
 
-  resources :users, :except => [:show]
+  resources :users, except: [:show]
 
-  resource :sessions, :only => [:new, :create, :destroy]
+  resource :sessions, only: [:new, :create, :destroy]
 end

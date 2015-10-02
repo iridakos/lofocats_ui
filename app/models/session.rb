@@ -8,8 +8,8 @@ class Session
   validates_presence_of :email, :password
 
   def attributes
-    { :email => nil,
-      :password => nil }
+    { email: nil,
+      password: nil }
   end
 
   class << self
@@ -23,6 +23,6 @@ class Session
   end
 
   def create
-    self.class.execute(:post, '/api/sessions', :session => self.serializable_hash)
+    self.class.execute(:post, '/api/sessions', session: self.serializable_hash)
   end
 end

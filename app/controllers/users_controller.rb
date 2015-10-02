@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     if @user.save
-      redirect_to users_path, :info => "User #{@user.email} was created successfully!"
+      redirect_to users_path, info: "User #{@user.email} was created successfully!"
     else
       render :new
     end

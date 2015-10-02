@@ -28,17 +28,17 @@ class CatEntry
   attr_accessor :user
 
   def attributes
-    {:breed => nil,
-     :photo_url => nil,
-     :longitude => nil,
-     :latitude => nil,
-     :color => nil,
-     :event_date => nil,
-     :entry_type => nil,
-     :contact_email => nil,
-     :contact_phone => nil,
-     :resolved => nil,
-     :chip => nil}
+    {breed: nil,
+     photo_url: nil,
+     longitude: nil,
+     latitude: nil,
+     color: nil,
+     event_date: nil,
+     entry_type: nil,
+     contact_email: nil,
+     contact_phone: nil,
+     resolved: nil,
+     chip: nil}
   end
 
   class << self
@@ -53,9 +53,9 @@ class CatEntry
 
   def save
     if id.present?
-      self.class.execute(:put, "/api/cat_entries/#{id}", :cat_entry => self.serializable_hash)
+      self.class.execute(:put, "/api/cat_entries/#{id}", cat_entry: self.serializable_hash)
     else
-      response = self.class.execute(:post, '/api/cat_entries', :cat_entry => self.serializable_hash)
+      response = self.class.execute(:post, '/api/cat_entries', cat_entry: self.serializable_hash)
       self.id = response[:id]
     end
 
