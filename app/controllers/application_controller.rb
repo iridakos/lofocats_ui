@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery :with => :exception
+  protect_from_forgery with: :exception
 
   # Set current user's authentication token
   around_filter :set_api_authentication_token
@@ -13,14 +13,14 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     else
       flash[:warning] = 'Sorry, you need to sign in to do that.'
-      redirect_to new_sessions_path(:return_to => request.url)
+      redirect_to new_sessions_path(return_to: request.url)
     end
   end
 
   # CanCan's ability should handle unauthorized action but
   # in case API rules change, handle it accordingly.
   rescue_from RestClient::Unauthorized do
-    redirect_to root_path, :alert => 'Sorry, you are not allowed to do that.'
+    redirect_to root_path, alert: 'Sorry, you are not allowed to do that.'
   end
 
   # Resolves current user.

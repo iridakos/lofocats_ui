@@ -16,7 +16,7 @@ module Api
 
       def initialize_resource
         # Create a resource pointing to the LofoCats API, setting the desired version to the respective header.
-        RestClient::Resource.new(url, :headers => { :accept => "application/vnd.lofocats.v#{version}, application/json" })
+        RestClient::Resource.new(url, headers: { accept: "application/vnd.lofocats.v#{version}, application/json" })
       end
     end
   end

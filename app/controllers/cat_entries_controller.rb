@@ -1,6 +1,6 @@
 class CatEntriesController < ApplicationController
   # Load the cat entry
-  before_filter :load_cat_entry, :only => [:show, :edit, :update, :destroy]
+  before_filter :load_cat_entry, only: [:show, :edit, :update, :destroy]
 
   # GET /cat_entries
   def index
@@ -18,7 +18,7 @@ class CatEntriesController < ApplicationController
   def new
     authorize! :create, CatEntry
     entry_type = params[:type] if %w(lost found).include?(params[:type])
-    @cat_entry = CatEntry.new(:entry_type => entry_type, :contact_email => session[:user_information][:email])
+    @cat_entry = CatEntry.new(entry_type: entry_type, contact_email: session[:user_information][:email])
   end
 
   # POST /cat_entries
@@ -28,7 +28,7 @@ class CatEntriesController < ApplicationController
     @cat_entry = CatEntry.new(params[:cat_entry])
 
     if @cat_entry.save
-      redirect_to cat_entry_path(:id => @cat_entry.id)
+      redirect_to cat_entry_path(id: @cat_entry.id)
     else
       render :new
     end
@@ -46,7 +46,7 @@ class CatEntriesController < ApplicationController
     @cat_entry.attributes= params[:cat_entry]
 
     if @cat_entry.save
-      redirect_to cat_entry_path(:id => @cat_entry.id)
+      redirect_to cat_entry_path(id: @cat_entry.id)
     else
       render :new
     end
