@@ -1,4 +1,4 @@
-# LofoCats UI
+# LofoCats UI :cat:
 
 LofoCats is a simple application, consuming the [LofoCats API](https://github.com/iridakos/lofocats_api), built with Ruby on Rails for demo purposes.
 
