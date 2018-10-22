@@ -37,3 +37,5 @@ gem 'jquery-ui-rails'
 gem 'simple_form'
 
 gem 'cancan'
+
+gem "sprockets", ">= 3.7.2"
