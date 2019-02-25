@@ -1,6 +1,6 @@
 # LofoCats UI :cat:
 
-LofoCats is a simple application, consuming the [LofoCats API](https://github.com/iridakos/lofocats_api), built with Ruby on Rails for demo purposes.
+LofoCats is a simple application, consuming the [LofoCats API][lofocats_api], built with Ruby on Rails for demo purposes.
 
 ![Cat entries index](https://3.bp.blogspot.com/-6KEEbALF9c8/VgLFrtF5hoI/AAAAAAAABcI/_QbpgDMU-1c/s1600/cat-entries-index.png)
 
@@ -12,11 +12,10 @@ LofoCats is a simple application, consuming the [LofoCats API](https://github.co
 
 ## Setting up the application
 
-* Clone the repository.
-* Execute <code>bundle install</code> to install required gems.
-* Edit the <code>config/api.yml</code> and update it with the URL of the LofoCats API. By default, the applications will use <code>http://localhost:3001</code>
-* Execute <code>rails server</code> to start the application on the default port.
-* Navigate to [the application's home page](http://localhost:3000) and there you are. For signing in, view  the documentation of the [LofoCats API](https://github.com/iridakos/lofocats_api) to obtain the credentials of the user that you want to use.
+* Clone this repository and [the `lofocats_api` repository][lofocats_api].
+* Execute `docker-compose up` in your copy of the [`lofocats_api` repository][lofocats_api] to start the backend services.
+* Execute `docker-compose up` in this repository to start the application on the default port.
+* Navigate to [the application's home page](http://localhost:3000) and there you are. For signing in, view  the documentation of the [LofoCats API][lofocats_api] to obtain the credentials of the user that you want to use.
 
 ## Behind the scenes
 
@@ -73,3 +72,5 @@ ___
 ### Sign in Page for Mobiles
 
 ![Sign in page for mobiles](https://4.bp.blogspot.com/-8hGbaqUvHn0/VgLGVqKtNRI/AAAAAAAABc4/fe5St4o8OYc/s1600/mobile-sign-in.png)
+
+[lofocats_api]: https://github.com/iridakos/lofocats_api

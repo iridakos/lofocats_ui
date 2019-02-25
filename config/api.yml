@@ -1,11 +1,12 @@
+default: &default
+  url: <%= ENV['LOFOCATS_API_URL'] || 'http://localhost:3001' %>
+  version: <%= ENV['LOFOCATS_API_VERSION'] || '1' %>
+
 development:
-  url: 'http://localhost:3001'
-  version: '1'
+  <<: *default
 
 test:
-  url: 'http://localhost:3001'
-  version: '1'
+  <<: *default
 
 production:
-  url: 'http://localhost:3001'
-  version: '1'
+  <<: *default

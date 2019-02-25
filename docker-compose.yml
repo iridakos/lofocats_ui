@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  ui:
+    build: .
+    # Change command to install development dependencies
+    command: sh -c 'apk add build-base && bundle install --with development && rails server -b 0.0.0.0 -p 3000'
+    volumes:
+      - .:/app
+    # Connect to the API network (created by docker-compose in the lofocats_api repo)
+    networks:
+      - lofocats_api_default
+    environment:
+      - RAILS_ENV=development
+      - LOFOCATS_API_URL=http://api:3001
+      - LOFOCATS_API_VERSION=1
+    ports:
+      - 127.0.0.1:3000:3000
+
+networks:
+  lofocats_api_default:
+    external: true
