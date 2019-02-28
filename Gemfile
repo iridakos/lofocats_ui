@@ -41,3 +41,4 @@ gem 'cancan'
 gem "sprockets", ">= 3.7.2"
 
 gem 'rails_12factor'
+gem 'health_check'

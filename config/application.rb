@@ -11,6 +11,6 @@ Bundler.require(*Rails.groups)
 
 module LofocatsUi
   class Application < Rails::Application
-
+    config.middleware.insert_after Rails::Rack::Logger, HealthCheck::MiddlewareHealthcheck
   end
 end
