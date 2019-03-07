@@ -8,14 +8,20 @@ services:
     volumes:
       - .:/app
     # Connect to the API network (created by docker-compose in the lofocats_api repo)
-    networks:
+    networks: &networks
       - lofocats_api_default
     environment:
       - RAILS_ENV=development
       - LOFOCATS_API_URL=http://api:3001
       - LOFOCATS_API_VERSION=1
+      - REDIS_URL=redis://redis:6379/0
     ports:
       - 127.0.0.1:3000:3000
+    depends_on:
+      - redis
+  redis:
+    image: redis:4-alpine
+    networks: *networks
 
 networks:
   lofocats_api_default:
