@@ -13,6 +13,18 @@ gem 'uglifier', '>= 1.3.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# Serve static files and send logs to STDOUT
+gem 'rails_12factor'
+
+# Health check endpoint
+gem 'health_check'
+
+# Collect and export monitoring metrics
+gem 'prometheus-client'
+
+# Cache store
+gem 'redis-rails'
+
 group :development, :test do
   gem 'byebug'
 end

@@ -32,4 +32,8 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Allow web console from anywhere since accessed from docker-compose
+  # and then only served on localhost
+  defined? config.web_console.whitelisted_ips = '0.0.0.0/0'
 end
